@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "oceanic-plus",
+	"version": "${version}",
+	"name": "oceanic-plus",
+	"description": "This is a mod meant to improve ocean exploration by improving its rewards",
+	"authors": [
+		"Turts-Potato"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/oceanic-plus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.turts.oceanics.Oceanicplus"
+		],
+		"fabric-datagen": [
+			"com.turts.oceanics.OceanicplusDataGenerator"
+		],
+      "client": [
+        "com.turts.oceanics.OceanicplusClient"
+      ]
+	},
+	"mixins": [
+		"oceanic-plus.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
