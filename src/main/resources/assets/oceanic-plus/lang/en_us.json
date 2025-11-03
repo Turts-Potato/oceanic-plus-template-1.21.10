@@ -1,0 +1,12 @@
+{
+  "item.oceanic-plus.nautilus_chestplate": "Nautilus Chestplate",
+  "item.oceanic-plus.frog_boots": "Frog Boots",
+  "item.oceanic-plus.frog_leggings": "Frog Leggings",
+  "item.oceanic-plus.frog_hide": "Frog Hide",
+  "item.oceanic-plus.placeholder_rn": "PlaceholderRn",
+  "item.oceanic-plus.placeholder_spec": "PlaceholderSpec",
+
+  "tooltip.oceanic-plus.placeholder_spec": "§9This is a placeholder, maybe it'll awaken items?§r",
+
+  "itemgroup.oceanic-plus.oceanics_items": "Oceanic Items"
+}

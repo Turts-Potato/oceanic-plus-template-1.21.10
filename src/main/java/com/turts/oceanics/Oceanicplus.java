@@ -1,7 +1,12 @@
 package com.turts.oceanics;
 
+import com.turts.oceanics.block.ModBlocks;
+import com.turts.oceanics.item.ModItemGroups;
+import com.turts.oceanics.item.ModItems;
 import net.fabricmc.api.ModInitializer;
-
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.minecraft.item.Item;
+import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,5 +17,14 @@ public class Oceanicplus implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+        ModItemGroups.registerItemGroups();
+        ModBlocks.registerModBlocks();
+        ModItems.registerModItems();
+
+        ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
+            if (itemStack.isOf(Item.fromBlock(ModBlocks.PLACEHOLDERSPEC))){
+                    list.add(Text.translatable("tooltip.oceanic-plus.placeholder_spec"));
+            }
+        });
 	}
 }
