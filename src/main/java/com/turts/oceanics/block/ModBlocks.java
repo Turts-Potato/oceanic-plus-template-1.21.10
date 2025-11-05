@@ -18,10 +18,10 @@ import net.minecraft.util.Identifier;
 public class ModBlocks {
 
     public static final Block PLACEHOLDER = registerBlock("placeholder_rn",
-            AbstractBlock.Settings.create().strength(4.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK));
+            AbstractBlock.Settings.create().strength(2.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK));
 
     public static final Block PLACEHOLDERSPEC = registerSpecialBlock("placeholder_spec",
-          AbstractBlock.Settings.create().strength(4.0F).sounds(BlockSoundGroup.BONE));
+          AbstractBlock.Settings.create().strength(2.0F).sounds(BlockSoundGroup.BONE));
 
 
     private static Block registerBlock(String name, AbstractBlock.Settings blockSettings) {

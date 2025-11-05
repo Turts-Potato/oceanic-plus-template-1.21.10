@@ -19,9 +19,15 @@ public class ModTags {
         public static class Items {
 
             public static final TagKey<Item> AWAKENABLE_ITEMS = createTag("awakenable_items");
+            public static final TagKey<Item> FROG_HIDE_REPAIR = createTag("frog_hide_repair");
+            public static final TagKey<Item> NAUTILUS_SHELL_REPAIR = createTag("nautilus_shell_repair");
 
             private static TagKey<Item> createTag(String name) {
                 return TagKey.of(RegistryKeys.ITEM, Identifier.of(Oceanicplus.MOD_ID, name));
+
+
+
         }
     }
+
 }

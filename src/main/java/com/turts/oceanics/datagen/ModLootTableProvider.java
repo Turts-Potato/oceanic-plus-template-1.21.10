@@ -20,8 +20,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     addDrop(ModBlocks.PLACEHOLDER);
     addDrop(ModBlocks.PLACEHOLDERSPEC);
     addDrop(Blocks.TURTLE_EGG);
-    addDrop(Blocks.PEARLESCENT_FROGLIGHT, dropsWithShears(Blocks.GLOWSTONE));
-    addDrop(Blocks.PEARLESCENT_FROGLIGHT, dropsWithShears(ModItems.FROG_HIDE));
+    //addDrop(Blocks.PEARLESCENT_FROGLIGHT, dropsWithShears(Blocks.GLOWSTONE));
+    //addDrop(Blocks.PEARLESCENT_FROGLIGHT, dropsWithShears(ModItems.FROG_HIDE));
     //MAKE THE BLOCK DROP 1 GLOWSTONE 8 FROG HIDE ^^^^ ALSO APPLY TO ALL FROGLIGHTS
     }
 }

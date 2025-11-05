@@ -1,12 +1,14 @@
 package com.turts.oceanics.datagen;
 
 import com.turts.oceanics.block.ModBlocks;
+import com.turts.oceanics.item.ModArmorMaterials;
 import com.turts.oceanics.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
+import net.minecraft.item.equipment.EquipmentAsset;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -21,9 +23,12 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.FROG_LEGGINGS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FROG_BOOTS, Models.GENERATED);
+       // itemModelGenerator.register(ModItems.FROG_LEGGINGS, Models.GENERATED);
+       // itemModelGenerator.register(ModItems.FROG_BOOTS, Models.GENERATED);
         itemModelGenerator.register(ModItems.FROG_HIDE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.NAUTILUS_CHESTPLATE, Models.GENERATED);
+       // itemModelGenerator.register(ModItems.NAUTILUS_CHESTPLATE, Models.GENERATED);
+        itemModelGenerator.registerArmor(ModItems.FROG_LEGGINGS, ModArmorMaterials.FROG_HIDE_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.FROG_BOOTS, ModArmorMaterials.FROG_HIDE_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.NAUTILUS_CHESTPLATE, ModArmorMaterials.FROG_HIDE_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
     }
 }

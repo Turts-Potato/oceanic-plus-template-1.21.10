@@ -3,6 +3,7 @@ package com.turts.oceanics;
 import com.turts.oceanics.block.ModBlocks;
 import com.turts.oceanics.item.ModItemGroups;
 import com.turts.oceanics.item.ModItems;
+import com.turts.oceanics.util.ModLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.item.Item;
@@ -26,5 +27,8 @@ public class Oceanicplus implements ModInitializer {
                     list.add(Text.translatable("tooltip.oceanic-plus.placeholder_spec"));
             }
         });
+
+        ModLootTableModifiers.modifyLootTables();
+
 	}
 }
