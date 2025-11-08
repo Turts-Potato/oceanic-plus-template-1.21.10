@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
@@ -24,7 +25,7 @@ public class ModArmorItem extends Item {
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL,
-                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 10, 0, false, false))).build();
+                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, 0, false, false))).build();
 
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP_UP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
@@ -93,7 +94,9 @@ public class ModArmorItem extends Item {
         ItemStack boots = player.getEquippedStack(EquipmentSlot.FEET);
         ItemStack leggings = player.getEquippedStack(EquipmentSlot.LEGS);
 
-        return !leggings.isEmpty() && !boots.isEmpty();
+        return !leggings.isEmpty() && !boots.isEmpty() &&
+                getArmorMaterial(boots) != null && getArmorMaterial(leggings) != null &&
+        getArmorMaterial(boots).equals(getArmorMaterial(leggings));
     }
 
     private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
@@ -101,15 +104,15 @@ public class ModArmorItem extends Item {
         ItemStack boots = player.getEquippedStack(EquipmentSlot.FEET);
         ItemStack leggings = player.getEquippedStack(EquipmentSlot.LEGS);
 
-        boolean BootsEquipped = !boots.isEmpty();
-        boolean LeggingsEquipped = !leggings.isEmpty();
+        boolean bootsEquipped = !boots.isEmpty();
+        boolean leggingsEquipped = !leggings.isEmpty();
 
-        if (!BootsEquipped && !LeggingsEquipped) {
+        if (!bootsEquipped && !leggingsEquipped) {
             return false;
         }
 
-        boolean bootsMatch = BootsEquipped && getArmorMaterial(boots).equals(material);
-        boolean leggingsMatch = LeggingsEquipped && getArmorMaterial(leggings).equals(material);
+        boolean bootsMatch = bootsEquipped && getArmorMaterial(boots) != null && getArmorMaterial(boots).equals(material);
+        boolean leggingsMatch = leggingsEquipped && getArmorMaterial(leggings) != null && getArmorMaterial(leggings).equals(material);
 
         return bootsMatch || leggingsMatch;
     }

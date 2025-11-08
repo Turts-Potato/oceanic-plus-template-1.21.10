@@ -3,12 +3,7 @@
 
     "humanoid": [
       {
-        "texture": "oceanic-plus:frog_hide"
-      }
-    ],
-    "humanoid_leggings": [
-      {
-        "texture": "oceanic-plus:frog_hide"
+        "texture": "oceanic-plus:nautilus_shell"
       }
     ]
   }

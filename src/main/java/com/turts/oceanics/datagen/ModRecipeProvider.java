@@ -45,6 +45,33 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('X', Items.NAUTILUS_SHELL)
                         .criterion(hasItem(ModItems.NAUTILUS_CHESTPLATE), conditionsFromItem(ModItems.NAUTILUS_CHESTPLATE))
                         .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.FROG_CHESTPLATE, 1)
+                        .pattern("X X")
+                        .pattern("XXX")
+                        .pattern("XXX")
+                        .input('X', ModItems.FROG_HIDE)
+                        .criterion(hasItem(ModItems.FROG_CHESTPLATE), conditionsFromItem(ModItems.FROG_CHESTPLATE))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.COMBAT, ModItems.FROG_HAT, 1)
+                        .pattern("XXX")
+                        .pattern("X X")
+                        .input('X', ModItems.FROG_HIDE)
+                        .criterion(hasItem(ModItems.FROG_HAT), conditionsFromItem(ModItems.FROG_HAT))
+                        .offerTo(exporter);
+
+                /*MAKE FROG HIDE ALTS CRAFT DIFFERENT FROGLIGHTS
+
+                createShaped(RecipeCategory.DECORATIONS, Items.PEARLESCENT_FROGLIGHT, 1)
+                        .pattern("XXX")
+                        .pattern("X#X")
+                        .pattern("XXX")
+                        .input('X', ModItems.FROG_HIDE)
+                        .input('#', Items.GLOWSTONE)
+                        .criterion(hasItem(Items.PEARLESCENT_FROGLIGHT), conditionsFromItem(Items.PEARLESCENT_FROGLIGHT))
+                        .offerTo(exporter);
+                */
             }
         };
     }

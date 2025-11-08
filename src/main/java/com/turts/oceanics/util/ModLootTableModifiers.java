@@ -2,6 +2,7 @@ package com.turts.oceanics.util;
 
 import com.turts.oceanics.item.ModItems;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -19,8 +20,8 @@ public class ModLootTableModifiers {
     private static final Identifier OCHRE_FROGLIGHT_BLOCK_ID
             = Identifier.of("minecraft", "blocks/ochre_froglight");
 
-    private static final Identifier VERDENT_FROGLIGHT_BLOCK_ID
-            = Identifier.of("minecraft", "blocks/verdent_froglight");
+    private static final Identifier VERDANT_FROGLIGHT_BLOCK_ID
+            = Identifier.of("minecraft", "blocks/verdant_froglight");
 
     private static final Identifier FROG_ID
             = Identifier.of("minecraft", "entities/frog");
@@ -33,9 +34,9 @@ public class ModLootTableModifiers {
             if(PEARLESCENT_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.5f)) // Drops 25% of the time
+                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8f, 8f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
@@ -43,19 +44,19 @@ public class ModLootTableModifiers {
             if(OCHRE_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.5f)) // Drops 25% of the time
+                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8f, 8f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
 
-            if(VERDENT_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
+            if(VERDANT_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.5f)) // Drops 25% of the time
+                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8f, 8f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
@@ -63,7 +64,7 @@ public class ModLootTableModifiers {
             if(FROG_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.6f)) // Drops 60% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.65f)) // Drops 65% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 
@@ -73,7 +74,7 @@ public class ModLootTableModifiers {
             if(TURTLE_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.35f)) // Drops 35% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.55f)) // Drops 55% of the time
                         .with(ItemEntry.builder(Items.TURTLE_SCUTE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
 

@@ -25,24 +25,26 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.TURTLE_HELMET);
 
         valueLookupBuilder(ModTags.Items.FROG_HIDE_REPAIR)
-                .add(ModItems.FROG_BOOTS)
-                .add(ModItems.FROG_LEGGINGS);
+                .add(ModItems.FROG_HIDE);
 
         valueLookupBuilder(ModTags.Items.NAUTILUS_SHELL_REPAIR)
-                .add(ModItems.NAUTILUS_CHESTPLATE);
+                .add(Items.NAUTILUS_SHELL);
 
-        valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
-                .add(ModItems.FROG_BOOTS)
+        valueLookupBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(ModItems.FROG_LEGGINGS)
+                .add(ModItems.FROG_BOOTS);
+
+        valueLookupBuilder(ItemTags.CHEST_ARMOR)
                 .add(ModItems.NAUTILUS_CHESTPLATE);
 
-        valueLookupBuilder(ItemTags.CHEST_ARMOR_ENCHANTABLE)
-                .add(ModItems.NAUTILUS_CHESTPLATE);
-
-        valueLookupBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.LEG_ARMOR)
                 .add(ModItems.FROG_LEGGINGS);
 
-        valueLookupBuilder(ItemTags.FOOT_ARMOR_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.FOOT_ARMOR)
                 .add(ModItems.FROG_BOOTS);
+
+        valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.FROG_HAT)
+                .add(ModItems.FROG_CHESTPLATE);
     }
 }

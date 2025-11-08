@@ -5,6 +5,7 @@ import com.turts.oceanics.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 
@@ -20,8 +21,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     addDrop(ModBlocks.PLACEHOLDER);
     addDrop(ModBlocks.PLACEHOLDERSPEC);
     addDrop(Blocks.TURTLE_EGG);
-    //addDrop(Blocks.PEARLESCENT_FROGLIGHT, dropsWithShears(Blocks.GLOWSTONE));
-    //addDrop(Blocks.PEARLESCENT_FROGLIGHT, dropsWithShears(ModItems.FROG_HIDE));
-    //MAKE THE BLOCK DROP 1 GLOWSTONE 8 FROG HIDE ^^^^ ALSO APPLY TO ALL FROGLIGHTS
+    addDrop(Blocks.VERDANT_FROGLIGHT, Blocks.GLOWSTONE);
+    addDrop(Blocks.OCHRE_FROGLIGHT, Blocks.GLOWSTONE);
+    addDrop(Blocks.PEARLESCENT_FROGLIGHT, Blocks.GLOWSTONE);
     }
 }

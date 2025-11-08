@@ -5,8 +5,12 @@
   "item.oceanic-plus.frog_hide": "Frog Hide",
   "item.oceanic-plus.placeholder_rn": "PlaceholderRn",
   "item.oceanic-plus.placeholder_spec": "PlaceholderSpec",
+  "item.oceanic-plus.frog_chestplate": "Frog Chestplate",
+  "item.oceanic-plus.frog_hat": "Frog Hat",
 
   "tooltip.oceanic-plus.placeholder_spec": "§9This is a placeholder, maybe it'll awaken items?§r",
+  "tooltip.oceanic-plus.frog_chestplate": "§8Purely for cosmetic purposes§r",
+  "tooltip.oceanic-plus.frog_hat": "§8Purely for cosmetic purposes§r",
 
   "itemgroup.oceanic-plus.oceanics_items": "Oceanic Items"
 }
