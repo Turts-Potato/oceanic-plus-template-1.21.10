@@ -1,7 +1,7 @@
 package com.turts.oceanics;
 
 import com.turts.oceanics.block.ModBlocks;
-import com.turts.oceanics.item.custom.ModAmorAttributes;
+import com.turts.oceanics.item.custom.ModArmorAttributes;
 import com.turts.oceanics.item.ModItemGroups;
 import com.turts.oceanics.item.ModItems;
 import com.turts.oceanics.util.ModLootTableModifiers;
@@ -21,7 +21,7 @@ public class Oceanicplus implements ModInitializer {
         ModItemGroups.registerItemGroups();
         ModBlocks.registerModBlocks();
         ModItems.registerModItems();
-        ModAmorAttributes.register();
+        ModArmorAttributes.register();
 
         ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
             if (itemStack.isOf(ModBlocks.PLACEHOLDERSPEC.asItem())) {
@@ -33,11 +33,13 @@ public class Oceanicplus implements ModInitializer {
             }
 
             if (itemStack.isOf(ModItems.FROG_HAT.asItem())){
-                list.add(Text.translatable("tooltip.oceanic-plus.frog_hat"));
+                list.add(Text.translatable("tooltip.oceanic-plus.frog_leggings"));
+            }
+
+            if (itemStack.isOf(ModItems.FROG_BOOTS.asItem())){
+                list.add(Text.translatable("tooltip.oceanic-plus.frog_boots"));
             }
         });
-
         ModLootTableModifiers.modifyLootTables();
-
 	}
 }

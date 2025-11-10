@@ -12,5 +12,8 @@
   "tooltip.oceanic-plus.frog_chestplate": "§8Purely for cosmetic purposes§r",
   "tooltip.oceanic-plus.frog_hat": "§8Purely for cosmetic purposes§r",
 
+  "tooltip.oceanic-plus.frog_leggings": "§8Increased Sneaking Speed§r",
+  "tooltip.oceanic-plus.frog_boots": "§8Increased Water Movement Efficiency§r",
+
   "itemgroup.oceanic-plus.oceanics_items": "Oceanic Items"
 }
