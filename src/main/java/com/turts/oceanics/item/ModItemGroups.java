@@ -22,6 +22,8 @@ public class ModItemGroups {
                         entries.add(ModItems.FROG_HIDE);
                         entries.add(ModItems.FROG_HAT);
                         entries.add(ModItems.FROG_CHESTPLATE);
+                        entries.add(ModItems.BURNT_FROG_LEGS);
+                        entries.add(ModItems.BURNT_FROG_FEET);
                         entries.add(ModBlocks.PLACEHOLDER);
                         entries.add(ModBlocks.PLACEHOLDERSPEC);
                     }).build());

@@ -1,73 +1,103 @@
 package com.turts.oceanics.item.custom;
 
 import com.turts.oceanics.item.ModItems;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.world.ClientWorld;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-
-
-import static net.minecraft.entity.attribute.EntityAttributes.SNEAKING_SPEED;
-import static net.minecraft.entity.attribute.EntityAttributes.WATER_MOVEMENT_EFFICIENCY;
+import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 
 public class ModArmorAttributes {
 
-    private static boolean wearingB = false;
-    private static boolean wearingL = false;
+    private static final Identifier FROG_BOOTS_ID = Identifier.of("oceanic-plus", "frog_boots_water_speed");
+    private static final Identifier FROG_LEGGINGS_ID = Identifier.of("oceanic-plus", "frog_leggings_sneak_speed");
+    private static final Identifier NAUTILUS_CHESTPLATE_ID = Identifier.of("oceanic-plus", "nautilus_chestplate_oxygen_bonus");
+    private static final Identifier TURTLE_HELMET_ID = Identifier.of("minecraft", "turtle_helmet_submerged_mining_speed");
 
-    public static void register() {
-        ClientTickEvents.END_WORLD_TICK.register(ModArmorAttributes::onPlayerTick);
+    public static void registerArmorAttributes() {
+        //Note to self: run Server before playtesting when this is edited
+        ServerTickEvents.END_WORLD_TICK.register(ModArmorAttributes::onWorldTick);
     }
 
-    private static void onPlayerTick(ClientWorld world) {
-        PlayerEntity player = MinecraftClient.getInstance().player;
-        if (player == null) return;
-        activatePseudoStrider(player);
-        activatePseudoSneak(player);
-    }
-
-
-    private static void activatePseudoStrider(PlayerEntity player) {
-        final float speedIncrease = 0.33333334F; // + 0.33333334 speed in water, like depth strider 1
-        ItemStack boots = player.getEquippedStack(EquipmentSlot.FEET);
-        double currentSpeed = player.getAttributeInstance(WATER_MOVEMENT_EFFICIENCY).getValue();
-        //System.out.println(currentSpeed);
-
-        if (boots.getItem().equals(ModItems.FROG_BOOTS)) {
-            //Sets player movement speed to the increased value when wearing
-            if(!wearingB) {
-                player.getAttributeInstance(WATER_MOVEMENT_EFFICIENCY).setBaseValue(currentSpeed + speedIncrease);
-                wearingB = true;
-            }
-        }else {
-            // Reset the speed to default when not wearing the boots
-            if(wearingB) {
-                player.getAttributeInstance(WATER_MOVEMENT_EFFICIENCY).setBaseValue(currentSpeed - speedIncrease);
-                wearingB = false;
-            }
+    private static void onWorldTick(ServerWorld world) {
+        for (PlayerEntity player : world.getPlayers()) {
+            applyPseudoStrider(player);
+            applyPseudoSneak(player);
+            applyPseudoRespiration(player);
+            applyPseudoAffinity(player);
         }
     }
 
-    private static void activatePseudoSneak(PlayerEntity player) {
-        final float speedIncrease = 0.45F; // + 0.15 crouching speed, like swift sneak 1
-        ItemStack pants = player.getEquippedStack(EquipmentSlot.LEGS);
-        double currentSpeed = player.getAttributeInstance(SNEAKING_SPEED).getValue();
-        System.out.println(currentSpeed);
+    private static void applyPseudoStrider(PlayerEntity player) {
+        final float speedIncrease = 0.33333334F; // +0.33333334 water movement efficiency, similar to depth strider 1
+        ItemStack boots = player.getEquippedStack(EquipmentSlot.FEET);
 
+        EntityAttributeInstance inst = player.getAttributeInstance(EntityAttributes.WATER_MOVEMENT_EFFICIENCY);
+        if (inst == null) return;
+
+        inst.removeModifier(FROG_BOOTS_ID);
+        if (boots.getItem().equals(ModItems.FROG_BOOTS)) {
+            inst.addTemporaryModifier(new EntityAttributeModifier(
+                    FROG_BOOTS_ID,
+                    speedIncrease,
+                    EntityAttributeModifier.Operation.ADD_VALUE
+            ));
+        }
+    }
+
+    private static void applyPseudoSneak(PlayerEntity player) {
+        final float speedIncrease = 0.1F; // +0.1 sneak speed, a bit less than swift sneak 1
+        ItemStack pants = player.getEquippedStack(EquipmentSlot.LEGS);
+
+        EntityAttributeInstance inst = player.getAttributeInstance(EntityAttributes.SNEAKING_SPEED);
+        if (inst == null) return;
+
+        inst.removeModifier(FROG_LEGGINGS_ID);
         if (pants.getItem().equals(ModItems.FROG_LEGGINGS)) {
-            //Sets player movement speed to the increased value when wearing
-            if(!wearingL) {
-                player.getAttributeInstance(SNEAKING_SPEED).setBaseValue(currentSpeed + speedIncrease);
-                wearingL = true;
-            }
-        }else {
-            // Reset the speed to default when not wearing the leggings
-            if(wearingL) {
-                player.getAttributeInstance(SNEAKING_SPEED).setBaseValue(currentSpeed - speedIncrease);
-                wearingL = false;
-            }
+            inst.addTemporaryModifier(new EntityAttributeModifier(
+                    FROG_LEGGINGS_ID,
+                    speedIncrease,
+                    EntityAttributeModifier.Operation.ADD_VALUE
+            ));
+        }
+    }
+
+    private static void applyPseudoRespiration(PlayerEntity player) {
+        final float speedIncrease = 1.0F; // +1.0 oxygen, similar to respiration 1
+        ItemStack shirt = player.getEquippedStack(EquipmentSlot.CHEST);
+
+        EntityAttributeInstance inst = player.getAttributeInstance(EntityAttributes.OXYGEN_BONUS);
+        if (inst == null) return;
+
+        inst.removeModifier(NAUTILUS_CHESTPLATE_ID);
+        if (shirt.getItem().equals(ModItems.NAUTILUS_CHESTPLATE)) {
+            inst.addTemporaryModifier(new EntityAttributeModifier(
+                    NAUTILUS_CHESTPLATE_ID,
+                    speedIncrease,
+                    EntityAttributeModifier.Operation.ADD_VALUE
+            ));
+        }
+    }
+
+    private static void applyPseudoAffinity(PlayerEntity player) {
+        final float speedIncrease = 4.0F; // +4.0 submerged mining speed, similar to aqua affinity
+        ItemStack hat = player.getEquippedStack(EquipmentSlot.HEAD);
+
+        EntityAttributeInstance inst = player.getAttributeInstance(EntityAttributes.SUBMERGED_MINING_SPEED);
+        if (inst == null) return;
+
+        inst.removeModifier(TURTLE_HELMET_ID);
+        if (hat.getItem().equals(Items.TURTLE_HELMET)) {
+            inst.addTemporaryModifier(new EntityAttributeModifier(
+                    TURTLE_HELMET_ID,
+                    speedIncrease,
+                    EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+            ));
         }
     }
 }

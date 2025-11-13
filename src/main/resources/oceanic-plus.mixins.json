@@ -3,7 +3,10 @@
 	"package": "com.turts.oceanics.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+      "PlayerEntityTurtleHelmetDurationMixin",
+      "TurtleMinTwoEggsMixin",
+      "TurtleEggHatchTimeMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

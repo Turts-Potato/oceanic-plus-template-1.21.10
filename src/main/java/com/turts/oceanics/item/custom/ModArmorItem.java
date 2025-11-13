@@ -25,12 +25,12 @@ public class ModArmorItem extends Item {
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL,
-                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, 0, false, false))).build();
+                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, 0, false, false, true))).build();
 
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP_UP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL,
-                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 10, 1, false, false))).build();
+                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, 1, false, false, true))).build();
 
     private Map<ArmorMaterial, List<StatusEffectInstance>> effectMap;
 
@@ -73,7 +73,7 @@ public class ModArmorItem extends Item {
     private void addStatusEffectForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, List<StatusEffectInstance> mapStatusEffect) {
         boolean hasPlayerEffect = mapStatusEffect.stream().allMatch(statusEffectInstance -> player.hasStatusEffect(statusEffectInstance.getEffectType()));
 
-        if(!hasPlayerEffect) {
+        if(!hasPlayerEffect && player.isSneaking()) {
             for (StatusEffectInstance instance : mapStatusEffect) {
                 player.addStatusEffect(new StatusEffectInstance(instance.getEffectType(),
                         instance.getDuration(), instance.getAmplifier(), instance.isAmbient(), instance.shouldShowParticles()));

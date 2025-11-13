@@ -6,8 +6,8 @@ import com.turts.oceanics.item.ModItemGroups;
 import com.turts.oceanics.item.ModItems;
 import com.turts.oceanics.util.ModLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-import net.minecraft.text.Text;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.minecraft.potion.Potions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,25 +21,12 @@ public class Oceanicplus implements ModInitializer {
         ModItemGroups.registerItemGroups();
         ModBlocks.registerModBlocks();
         ModItems.registerModItems();
-        ModArmorAttributes.register();
-
-        ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, tooltipType, list) -> {
-            if (itemStack.isOf(ModBlocks.PLACEHOLDERSPEC.asItem())) {
-                    list.add(Text.translatable("tooltip.oceanic-plus.placeholder_spec"));
-            }
-
-            if (itemStack.isOf(ModItems.FROG_CHESTPLATE.asItem())){
-                list.add(Text.translatable("tooltip.oceanic-plus.frog_chestplate"));
-            }
-
-            if (itemStack.isOf(ModItems.FROG_HAT.asItem())){
-                list.add(Text.translatable("tooltip.oceanic-plus.frog_leggings"));
-            }
-
-            if (itemStack.isOf(ModItems.FROG_BOOTS.asItem())){
-                list.add(Text.translatable("tooltip.oceanic-plus.frog_boots"));
-            }
-        });
+        ModArmorAttributes.registerArmorAttributes();
         ModLootTableModifiers.modifyLootTables();
+
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+            builder.registerPotionRecipe(Potions.AWKWARD, ModItems.FROG_BOOTS, Potions.LEAPING);
+            builder.registerPotionRecipe(Potions.AWKWARD, ModItems.FROG_LEGGINGS, Potions.LEAPING);
+        });
 	}
 }

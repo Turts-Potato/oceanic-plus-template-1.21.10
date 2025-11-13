@@ -6,10 +6,14 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.SmeltingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -22,6 +26,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         return new RecipeGenerator(wrapperLookup, recipeExporter) {
             @Override
             public void generate() {
+
+                List<ItemConvertible> OCEANICS_SMELTABLE_LEGS = List.of(ModItems.FROG_LEGGINGS);
+                List<ItemConvertible> OCEANICS_SMELTABLE_FEET = List.of(ModItems.FROG_BOOTS);
+
+                offerSmelting(OCEANICS_SMELTABLE_LEGS, RecipeCategory.FOOD, ModItems.BURNT_FROG_LEGS, 0.25F ,200,"burnt_frog_legs");
+                offerSmelting(OCEANICS_SMELTABLE_FEET, RecipeCategory.FOOD, ModItems.BURNT_FROG_FEET, 0.25F ,200,"burnt_frog_feet");
+
+
 
                 createShaped(RecipeCategory.COMBAT, ModItems.FROG_BOOTS, 1)
                         .pattern("X X")
@@ -72,6 +84,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.PEARLESCENT_FROGLIGHT), conditionsFromItem(Items.PEARLESCENT_FROGLIGHT))
                         .offerTo(exporter);
                 */
+
             }
         };
     }

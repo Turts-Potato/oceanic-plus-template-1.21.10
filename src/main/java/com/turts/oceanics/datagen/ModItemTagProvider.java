@@ -46,5 +46,17 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.FROG_HAT)
                 .add(ModItems.FROG_CHESTPLATE);
+
+        valueLookupBuilder(ItemTags.MEAT)
+                .add(ModItems.BURNT_FROG_LEGS)
+                .add(ModItems.BURNT_FROG_FEET);
+
+        valueLookupBuilder(ItemTags.WOLF_FOOD)
+                .add(ModItems.BURNT_FROG_LEGS)
+                .add(ModItems.BURNT_FROG_FEET);
+
+        valueLookupBuilder(ItemTags.CAT_FOOD)
+                .add(ModItems.BURNT_FROG_LEGS)
+                .add(ModItems.BURNT_FROG_FEET);
     }
 }

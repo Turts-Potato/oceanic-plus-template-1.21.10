@@ -24,6 +24,9 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.FROG_HIDE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BURNT_FROG_LEGS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BURNT_FROG_FEET, Models.GENERATED);
+
         itemModelGenerator.registerArmor(ModItems.FROG_LEGGINGS, ModArmorMaterials.FROG_HIDE_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.FROG_BOOTS, ModArmorMaterials.FROG_HIDE_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.NAUTILUS_CHESTPLATE, ModArmorMaterials.NAUTILUS_SHELL_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);

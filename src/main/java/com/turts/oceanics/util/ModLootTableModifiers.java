@@ -29,6 +29,9 @@ public class ModLootTableModifiers {
     private static final Identifier TURTLE_ID
             = Identifier.of("minecraft", "entities/turtle");
 
+    private static final Identifier DROWNED_ID
+            = Identifier.of("minecraft", "entities/drowned");
+
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
             if(PEARLESCENT_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
@@ -77,6 +80,16 @@ public class ModLootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(0.55f)) // Drops 55% of the time
                         .with(ItemEntry.builder(Items.TURTLE_SCUTE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+
+            if(DROWNED_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 5% of the time
+                        .with(ItemEntry.builder(Items.NAUTILUS_SHELL))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
