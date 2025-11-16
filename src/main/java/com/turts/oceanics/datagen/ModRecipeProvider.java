@@ -6,11 +6,13 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.SmeltingRecipe;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +29,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             @Override
             public void generate() {
 
-                List<ItemConvertible> OCEANICS_SMELTABLE_LEGS = List.of(ModItems.FROG_LEGGINGS);
-                List<ItemConvertible> OCEANICS_SMELTABLE_FEET = List.of(ModItems.FROG_BOOTS);
+                List<ItemConvertible> OCEANICS_SMELTABLE_FROG = List.of(ModItems.FROG_BOOTS, ModItems.FROG_LEGGINGS,
+                        ModItems.FROG_CHESTPLATE, ModItems.FROG_HAT, ModItems.FROG_HIDE);
 
-                offerSmelting(OCEANICS_SMELTABLE_LEGS, RecipeCategory.FOOD, ModItems.BURNT_FROG_LEGS, 0.25F ,200,"burnt_frog_legs");
-                offerSmelting(OCEANICS_SMELTABLE_FEET, RecipeCategory.FOOD, ModItems.BURNT_FROG_FEET, 0.25F ,200,"burnt_frog_feet");
-
-
+                offerSmelting(OCEANICS_SMELTABLE_FROG, RecipeCategory.FOOD, ModItems.BURNT_FROG, 0.25F ,200,"burnt_frog");
 
                 createShaped(RecipeCategory.COMBAT, ModItems.FROG_BOOTS, 1)
                         .pattern("X X")
@@ -58,20 +57,51 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.NAUTILUS_CHESTPLATE), conditionsFromItem(ModItems.NAUTILUS_CHESTPLATE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.COMBAT, ModItems.FROG_CHESTPLATE, 1)
-                        .pattern("X X")
+                createShaped(RecipeCategory.MISC, ModItems.AWAKENING_TEMPLATE, 2)
+                        .pattern("X#X")
+                        .pattern("X$X")
                         .pattern("XXX")
-                        .pattern("XXX")
-                        .input('X', ModItems.FROG_HIDE)
-                        .criterion(hasItem(ModItems.FROG_CHESTPLATE), conditionsFromItem(ModItems.FROG_CHESTPLATE))
+                        .input('X', Items.DIAMOND)
+                        .input('#', ModItems.AWAKENING_TEMPLATE)
+                        .input('$', Items.PRISMARINE_BRICKS)
+                        .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
                         .offerTo(exporter);
 
-                createShaped(RecipeCategory.COMBAT, ModItems.FROG_HAT, 1)
-                        .pattern("XXX")
-                        .pattern("X X")
-                        .input('X', ModItems.FROG_HIDE)
-                        .criterion(hasItem(ModItems.FROG_HAT), conditionsFromItem(ModItems.FROG_HAT))
-                        .offerTo(exporter);
+                SmithingTransformRecipeJsonBuilder.create(
+                                Ingredient.ofItems(ModItems.AWAKENING_TEMPLATE),
+                                Ingredient.ofItems(Items.TURTLE_HELMET),
+                                Ingredient.ofItems(Items.PRISMARINE_SHARD),
+                                RecipeCategory.COMBAT,
+                                ModItems.AWAKENED_TURTLE_HELMET)
+                        .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
+                        .offerTo(exporter, "oceanic-plus:turtle_awaken");
+
+                SmithingTransformRecipeJsonBuilder.create(
+                                Ingredient.ofItems(ModItems.AWAKENING_TEMPLATE),
+                                Ingredient.ofItems(ModItems.NAUTILUS_CHESTPLATE),
+                                Ingredient.ofItems(Items.PRISMARINE_SHARD),
+                                RecipeCategory.COMBAT,
+                                ModItems.AWAKENED_NAUTILUS_CHESTPLATE)
+                        .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
+                        .offerTo(exporter, "oceanic-plus:nautilus_awaken");
+
+                SmithingTransformRecipeJsonBuilder.create(
+                                Ingredient.ofItems(ModItems.AWAKENING_TEMPLATE),
+                                Ingredient.ofItems(ModItems.FROG_LEGGINGS),
+                                Ingredient.ofItems(Items.PRISMARINE_SHARD),
+                                RecipeCategory.COMBAT,
+                                ModItems.AWAKENED_FROG_LEGGINGS)
+                        .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
+                        .offerTo(exporter, "oceanic-plus:frog_leggings_awaken");
+
+                SmithingTransformRecipeJsonBuilder.create(
+                                Ingredient.ofItems(ModItems.AWAKENING_TEMPLATE),
+                                Ingredient.ofItems(ModItems.FROG_BOOTS),
+                                Ingredient.ofItems(Items.PRISMARINE_SHARD),
+                                RecipeCategory.COMBAT,
+                                ModItems.AWAKENED_FROG_BOOTS)
+                        .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
+                        .offerTo(exporter, "oceanic-plus:frog_boots_awaken");
 
                 /*MAKE FROG HIDE ALTS CRAFT DIFFERENT FROGLIGHTS
 

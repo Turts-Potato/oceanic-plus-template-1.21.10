@@ -12,15 +12,7 @@ import java.util.List;
 
 public class ModConsumableComponents extends ConsumableComponents {
 
-    public static final ConsumableComponent BURNT_FROG_LEGS = food()
-            .consumeEffect(
-                    new ApplyEffectsConsumeEffect(
-                            List.of(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 1))
-                    )
-            )
-            .build();
-
-    public static final ConsumableComponent BURNT_FROG_FEET = food()
+    public static final ConsumableComponent BURNT_FROG = food()
             .consumeEffect(
                     new ApplyEffectsConsumeEffect(
                             List.of(new StatusEffectInstance(StatusEffects.NAUSEA, 300, 1))

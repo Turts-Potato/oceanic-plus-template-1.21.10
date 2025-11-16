@@ -18,11 +18,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        valueLookupBuilder(ModTags.Items.AWAKENABLE_ITEMS)
-                .add(ModItems.FROG_BOOTS)
-                .add(ModItems.FROG_LEGGINGS)
-                .add(ModItems.NAUTILUS_CHESTPLATE)
-                .add(Items.TURTLE_HELMET);
+        valueLookupBuilder(ModTags.Items.AWAKENED_ITEMS)
+                .add(ModItems.AWAKENED_FROG_BOOTS)
+                .add(ModItems.AWAKENED_FROG_LEGGINGS)
+                .add(ModItems.AWAKENED_NAUTILUS_CHESTPLATE)
+                .add(ModItems.AWAKENED_TURTLE_HELMET);
 
         valueLookupBuilder(ModTags.Items.FROG_HIDE_REPAIR)
                 .add(ModItems.FROG_HIDE);
@@ -32,31 +32,36 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         valueLookupBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
                 .add(ModItems.FROG_LEGGINGS)
-                .add(ModItems.FROG_BOOTS);
+                .add(ModItems.FROG_BOOTS)
+                .add(ModItems.AWAKENED_FROG_LEGGINGS)
+                .add(ModItems.AWAKENED_FROG_BOOTS);
+
+        valueLookupBuilder(ItemTags.HEAD_ARMOR)
+                .add(ModItems.AWAKENED_TURTLE_HELMET);
 
         valueLookupBuilder(ItemTags.CHEST_ARMOR)
-                .add(ModItems.NAUTILUS_CHESTPLATE);
+                .add(ModItems.NAUTILUS_CHESTPLATE)
+                .add(ModItems.AWAKENED_NAUTILUS_CHESTPLATE);
 
         valueLookupBuilder(ItemTags.LEG_ARMOR)
-                .add(ModItems.FROG_LEGGINGS);
+                .add(ModItems.FROG_LEGGINGS)
+                .add(ModItems.AWAKENED_FROG_LEGGINGS);
 
         valueLookupBuilder(ItemTags.FOOT_ARMOR)
-                .add(ModItems.FROG_BOOTS);
+                .add(ModItems.FROG_BOOTS)
+                .add(ModItems.AWAKENED_FROG_BOOTS);
 
         valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.FROG_HAT)
                 .add(ModItems.FROG_CHESTPLATE);
 
         valueLookupBuilder(ItemTags.MEAT)
-                .add(ModItems.BURNT_FROG_LEGS)
-                .add(ModItems.BURNT_FROG_FEET);
+                .add(ModItems.BURNT_FROG);
 
         valueLookupBuilder(ItemTags.WOLF_FOOD)
-                .add(ModItems.BURNT_FROG_LEGS)
-                .add(ModItems.BURNT_FROG_FEET);
+                .add(ModItems.BURNT_FROG);
 
         valueLookupBuilder(ItemTags.CAT_FOOD)
-                .add(ModItems.BURNT_FROG_LEGS)
-                .add(ModItems.BURNT_FROG_FEET);
+                .add(ModItems.BURNT_FROG);
     }
 }

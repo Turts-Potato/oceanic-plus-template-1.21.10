@@ -32,66 +32,138 @@ public class ModLootTableModifiers {
     private static final Identifier DROWNED_ID
             = Identifier.of("minecraft", "entities/drowned");
 
+    private static final Identifier ELDER_GUARDIAN_ID
+            = Identifier.of("minecraft", "entities/elder_guardian");
+//------------------------------------ITEMS------------------------------------
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
+
             if(PEARLESCENT_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(1.0F)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8f, 8f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8F, 8F)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
 
             if(OCHRE_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(1.0F)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8f, 8f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8F, 8F)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
 
             if(VERDANT_FROGLIGHT_BLOCK_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(1.0F)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8f, 8f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(8F, 8F)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
-
+//------------------------------------MOBS------------------------------------
             if(FROG_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.65f)) // Drops 65% of the time
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(0.65F)) // Drops 65% of the time
                         .with(ItemEntry.builder(ModItems.FROG_HIDE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
 
             if(TURTLE_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.55f)) // Drops 55% of the time
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(0.55F)) // Drops 55% of the time
                         .with(ItemEntry.builder(Items.TURTLE_SCUTE))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 1.0F)).build());
 
                 tableBuilder.pool(poolBuilder.build());
             }
 
             if(DROWNED_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 5% of the time
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(0.15F)) // Drops 15% of the time
                         .with(ItemEntry.builder(Items.NAUTILUS_SHELL))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 1.0F)).build());
 
                 tableBuilder.pool(poolBuilder.build());
+            }
+
+            if(ELDER_GUARDIAN_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(1.0F)) // Drops 100% of the time
+                        .with(ItemEntry.builder(ModItems.AWAKENING_TEMPLATE))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 1.0F)).build());
+
+                tableBuilder.pool(poolBuilder.build());
+            }
+    //------------------------------------STRUCTURES------------------------------------
+            if(LootTables.SHIPWRECK_SUPPLY_CHEST.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(ItemEntry.builder(ModItems.FROG_CHESTPLATE).weight(3))
+                        .with(ItemEntry.builder(ModItems.FROG_HAT).weight(3));
+
+                });
+            }
+
+            if(LootTables.UNDERWATER_RUIN_SMALL_CHEST.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(ItemEntry.builder(ModItems.FROG_CHESTPLATE))
+                        .with(ItemEntry.builder(ModItems.FROG_HAT));
+
+                });
+            }
+
+            if(LootTables.UNDERWATER_RUIN_BIG_CHEST.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                        .rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(ItemEntry.builder(ModItems.FROG_CHESTPLATE))
+                        .with(ItemEntry.builder(ModItems.FROG_HAT));
+
+                });
+            }
+
+            if(LootTables.VILLAGE_TANNERY_CHEST.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                        .with(ItemEntry.builder(ModItems.FROG_HIDE).weight(1))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)).build())
+                        .with(ItemEntry.builder(ModItems.FROG_CHESTPLATE).weight(2))
+                        .with(ItemEntry.builder(ModItems.FROG_HAT).weight(2));
+
+
+                });
+            }
+
+            if(LootTables.VILLAGE_FISHER_CHEST.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                        .with(ItemEntry.builder(ModItems.FROG_HIDE).weight(1))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F)).build());
+
+                });
+            }
+//------------------------------------MISC------------------------------------
+            if(LootTables.CAT_MORNING_GIFT_GAMEPLAY.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                            .with(ItemEntry.builder(ModItems.FROG_HIDE).weight(10));
+                });
+            }
+
+            if(LootTables.FISHING_JUNK_GAMEPLAY.equals(key)) {
+                tableBuilder.modifyPools(pool -> { pool
+                        .with(ItemEntry.builder(ModItems.FROG_HIDE).weight(10));
+                });
             }
         });
     }

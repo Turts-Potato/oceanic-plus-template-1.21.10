@@ -44,6 +44,6 @@ public class PlaceholderSpec extends Block {
     }
 
     private boolean isValidItem(ItemStack stack) {
-        return stack.isIn(ModTags.Items.AWAKENABLE_ITEMS);
+        return stack.isIn(ModTags.Items.AWAKENED_ITEMS);
     }
 }

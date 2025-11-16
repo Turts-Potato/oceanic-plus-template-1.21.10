@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "got_frog_hide": {
+      "conditions": {
+        "items": [
+          {
+            "items": "oceanic-plus:frog_hide"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "oceanic-plus:gui/advancements/backgrounds/oceanics",
+    "description": "The start of your aquatic journey",
+    "icon": {
+      "count": 1,
+      "id": "oceanic-plus:frog_hide"
+    },
+    "title": "Oceanics"
+  },
+  "requirements": [
+    [
+      "got_frog_hide"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -6,7 +6,8 @@
 		"ExampleMixin",
       "PlayerEntityTurtleHelmetDurationMixin",
       "TurtleMinTwoEggsMixin",
-      "TurtleEggHatchTimeMixin"
+      "TurtleEggHatchTimeMixin",
+      "FrogBootsStepMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

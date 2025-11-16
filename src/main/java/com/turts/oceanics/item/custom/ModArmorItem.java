@@ -2,8 +2,6 @@ package com.turts.oceanics.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import com.turts.oceanics.item.ModArmorMaterials;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.Nullable;
 import java.util.List;
@@ -21,16 +18,17 @@ import java.util.Map;
 public class ModArmorItem extends Item {
     private final ArmorMaterial material;
 
-
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL,
-                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, 0, false, false, true))).build();
+                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 200, 0, true, false, true)))
+                    .build();
 
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP_UP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL,
-                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1, 1, false, false, true))).build();
+                            List.of(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 200, 1, true, false, true)))
+                    .build();
 
     private Map<ArmorMaterial, List<StatusEffectInstance>> effectMap;
 
@@ -71,12 +69,21 @@ public class ModArmorItem extends Item {
     }
 
     private void addStatusEffectForMaterial(PlayerEntity player, ArmorMaterial mapArmorMaterial, List<StatusEffectInstance> mapStatusEffect) {
-        boolean hasPlayerEffect = mapStatusEffect.stream().allMatch(statusEffectInstance -> player.hasStatusEffect(statusEffectInstance.getEffectType()));
+        for (StatusEffectInstance template : mapStatusEffect) {
+            var type = template.getEffectType();
+            var current = player.getStatusEffect(type);
 
-        if(!hasPlayerEffect && player.isSneaking()) {
-            for (StatusEffectInstance instance : mapStatusEffect) {
-                player.addStatusEffect(new StatusEffectInstance(instance.getEffectType(),
-                        instance.getDuration(), instance.getAmplifier(), instance.isAmbient(), instance.shouldShowParticles()));
+            // Top up if absent or running low
+            boolean restartTimer = current == null || current.getDuration() <= 200 || current.getAmplifier() != template.getAmplifier();
+            if (restartTimer && player.isSneaking()) {
+                player.addStatusEffect(new StatusEffectInstance(
+                        type,
+                        200, // 10 seconds
+                        template.getAmplifier(),
+                        true,
+                        false,
+                        true
+                ));
             }
         }
     }

@@ -7,16 +7,27 @@
   "item.oceanic-plus.placeholder_spec": "PlaceholderSpec",
   "item.oceanic-plus.frog_chestplate": "Frog Chestplate",
   "item.oceanic-plus.frog_hat": "Frog Hat",
-  "item.oceanic-plus.burnt_frog_legs": "Burnt Frog Legs",
-  "item.oceanic-plus.burnt_frog_feet": "Burnt Frog Feet",
+  "item.oceanic-plus.burnt_frog": "Burnt Frog",
+  "item.oceanic-plus.awakening_template": "Awakening Template",
+  "item.oceanic-plus.awakened_turtle_helmet": "Awakened Turtle Helmet",
+  "item.oceanic-plus.awakened_nautilus_chestplate": "Awakened Nautilus Chestplate",
+  "item.oceanic-plus.awakened_frog_leggings": "Awakened Frog Leggings",
+  "item.oceanic-plus.awakened_frog_boots": "Awakened Frog Boots",
 
   "tooltip.oceanic-plus.placeholder_spec": "§9This is a placeholder, maybe it'll awaken items?§r",
   "tooltip.oceanic-plus.frog_chestplate": "§8Purely for cosmetic purposes§r",
   "tooltip.oceanic-plus.frog_hat": "§8Purely for cosmetic purposes§r",
+
+  "tooltip.minecraft.turtle_helmet": "§9+200% Base Submerged Mining Speed§r",
   "tooltip.oceanic-plus.nautilus_chestplate": "§9+1 Base Oxygen Bonus§r",
   "tooltip.oceanic-plus.frog_leggings": "§9+0.1 Base Sneaking Speed§r",
   "tooltip.oceanic-plus.frog_boots": "§9+0.33 Base Water Movement Efficiency§r",
-  "tooltip.minecraft.turtle_helmet": "§9+400% Base Submerged Mining Speed§r",
+
+  "tooltip.oceanic-plus.awakened_turtle_helmet": "§9+400% Base Submerged Mining Speed§r",
+  "tooltip.oceanic-plus.awakened_nautilus_chestplate": "§9+2 Base Oxygen Bonus§r",
+  "tooltip.oceanic-plus.awakened_frog_leggings": "§9+0.2 Base Sneaking Speed§r",
+  "tooltip.oceanic-plus.awakened_frog_boots": "§9+1 Base Water Movement Efficiency§r",
+
 
 
   "itemgroup.oceanic-plus.oceanics_items": "Oceanic Items"

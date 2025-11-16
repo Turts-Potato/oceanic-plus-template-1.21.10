@@ -38,6 +38,22 @@ public class OceanicplusClient implements ClientModInitializer {
             if (itemStack.isOf(Items.TURTLE_HELMET.asItem())){
                 list.add(Text.translatable("tooltip.minecraft.turtle_helmet"));
             }
+
+            if (itemStack.isOf(ModItems.AWAKENED_FROG_BOOTS.asItem())){
+                list.add(Text.translatable("tooltip.oceanic-plus.awakened_frog_boots"));
+            }
+
+            if (itemStack.isOf(ModItems.AWAKENED_FROG_LEGGINGS.asItem())){
+                list.add(Text.translatable("tooltip.oceanic-plus.awakened_frog_leggings"));
+            }
+
+            if (itemStack.isOf(ModItems.AWAKENED_NAUTILUS_CHESTPLATE.asItem())){
+                list.add(Text.translatable("tooltip.oceanic-plus.awakened_nautilus_chestplate"));
+            }
+
+            if (itemStack.isOf(ModItems.AWAKENED_TURTLE_HELMET.asItem())){
+                list.add(Text.translatable("tooltip.oceanic-plus.awakened_turtle_helmet"));
+            }
         });
     }
 }

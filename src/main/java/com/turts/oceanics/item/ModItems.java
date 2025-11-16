@@ -2,17 +2,18 @@ package com.turts.oceanics.item;
 
 import com.turts.oceanics.Oceanicplus;
 import com.turts.oceanics.item.custom.ModArmorItem;
+import com.turts.oceanics.item.custom.ModArmorItemButForTags;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.SmithingTemplateItem;
+import net.minecraft.item.equipment.ArmorMaterials;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
 
 import java.util.function.Function;
 
@@ -40,12 +41,42 @@ public class ModItems {
     public static final Item FROG_LEGGINGS = registerItem("frog_leggings",
             setting -> new ModArmorItem(setting.armor(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL, EquipmentType.LEGGINGS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
 
-    public static final Item BURNT_FROG_LEGS = registerItem("burnt_frog_legs",
-            settings -> new Item(settings.food(ModFoodComponents.BURNT_FROG_LEGS, ModConsumableComponents.BURNT_FROG_LEGS)));
+    public static final Item BURNT_FROG = registerItem("burnt_frog",
+            settings -> new Item(settings.food(ModFoodComponents.BURNT_FROG, ModConsumableComponents.BURNT_FROG)));
 
-    public static final Item BURNT_FROG_FEET = registerItem("burnt_frog_feet",
-            settings -> new Item(settings.food(ModFoodComponents.BURNT_FROG_FEET, ModConsumableComponents.BURNT_FROG_FEET)));
+    public static final Item AWAKENING_TEMPLATE = registerItem("awakening_template",
+            settings -> SmithingTemplateItem.createNetheriteUpgrade(settings));
 
+/*
+    public static SmithingTemplateItem createNetheriteUpgrade(Item.Settings settings) {
+        return new SmithingTemplateItem(
+                NETHERITE_UPGRADE_APPLIES_TO_TEXT,
+                NETHERITE_UPGRADE_INGREDIENTS_TEXT,
+                NETHERITE_UPGRADE_BASE_SLOT_DESCRIPTION_TEXT,
+                NETHERITE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION_TEXT,
+                getNetheriteUpgradeEmptyBaseSlotTextures(),
+                getNetheriteUpgradeEmptyAdditionsSlotTextures(),
+                settings
+        );
+    }
+    */
+
+
+
+
+
+
+    public static final Item AWAKENED_TURTLE_HELMET = registerItem("awakened_turtle_helmet",
+            setting -> new ModArmorItemButForTags(setting.armor(ArmorMaterials.TURTLE_SCUTE, EquipmentType.HELMET), ArmorMaterials.TURTLE_SCUTE));
+
+    public static final Item AWAKENED_NAUTILUS_CHESTPLATE = registerItem("awakened_nautilus_chestplate",
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.NAUTILUS_SHELL_ARMOR_MATERIAL, EquipmentType.CHESTPLATE), ModArmorMaterials.NAUTILUS_SHELL_ARMOR_MATERIAL));
+
+    public static final Item AWAKENED_FROG_BOOTS = registerItem("awakened_frog_boots",
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL, EquipmentType.BOOTS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
+
+    public static final Item AWAKENED_FROG_LEGGINGS = registerItem("awakened_frog_leggings",
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL, EquipmentType.LEGGINGS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> function) {
 
@@ -66,8 +97,12 @@ public class ModItems {
             entries.add(FROG_LEGGINGS);
             entries.add(FROG_HAT);
             entries.add(FROG_CHESTPLATE);
-            entries.add(BURNT_FROG_LEGS);
-            entries.add(BURNT_FROG_FEET);
+            entries.add(BURNT_FROG);
+            entries.add(AWAKENING_TEMPLATE);
+            entries.add(AWAKENED_TURTLE_HELMET);
+            entries.add(AWAKENED_NAUTILUS_CHESTPLATE);
+            entries.add(AWAKENED_FROG_LEGGINGS);
+            entries.add(AWAKENED_FROG_BOOTS);
         });
     }
 }

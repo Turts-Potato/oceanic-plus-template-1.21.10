@@ -1,0 +1,13 @@
+// 1.21.10	-999999999-01-01T00:00:00	oceanic-plus/Tags for minecraft:item
+00e026fbe3f1af0a5f345e1a2b4662ebc86527b3 data/minecraft/tags/item/cat_food.json
+b375f2665526ecd50230f080e5f6af650e2c9017 data/minecraft/tags/item/chest_armor.json
+605e952f1a0ea5ff729374aa48001832d78ff53f data/minecraft/tags/item/foot_armor.json
+455c40f3a314f9ae73faf70819b6441070ed4601 data/minecraft/tags/item/freeze_immune_wearables.json
+904899640c33e30b9083ba290bd8675a2bc76e0b data/minecraft/tags/item/head_armor.json
+49a72c924c5f0f79d4314f55c3523bab0eab2b8a data/minecraft/tags/item/leg_armor.json
+00e026fbe3f1af0a5f345e1a2b4662ebc86527b3 data/minecraft/tags/item/meat.json
+d9f5f5a2d1a07c554b81c10b4175614a499fa551 data/minecraft/tags/item/trimmable_armor.json
+00e026fbe3f1af0a5f345e1a2b4662ebc86527b3 data/minecraft/tags/item/wolf_food.json
+4a6083cd34c4fd84eb4012cbdaa1336a88ba8e6d data/oceanic-plus/tags/item/awakened_items.json
+848db4dc708b3fb5520a690163b032b415134a1d data/oceanic-plus/tags/item/frog_hide_repair.json
+cc00bbed348ce6b8e46cead36a307a09ac4f7353 data/oceanic-plus/tags/item/nautilus_shell_repair.json

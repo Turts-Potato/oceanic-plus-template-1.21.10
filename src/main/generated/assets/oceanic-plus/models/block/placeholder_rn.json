@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "oceanic-plus:block/placeholder_rn"
+  }
+}
