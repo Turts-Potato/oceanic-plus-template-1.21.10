@@ -18,7 +18,7 @@ public class ModArmorMaterials {
     static RegistryKey<? extends Registry<EquipmentAsset>> REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.ofVanilla("equipment_asset"));
 
     public static final RegistryKey<EquipmentAsset> FROG_HIDE_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(Oceanicplus.MOD_ID, "frog_hide"));
-
+    //use if statement for awakened tag ^
     public static final ArmorMaterial FROG_HIDE_ARMOR_MATERIAL = new ArmorMaterial(25, Util.make(new EnumMap<>(EquipmentType.class), map -> {
         map.put(EquipmentType.BOOTS, 1);
         map.put(EquipmentType.LEGGINGS, 4);

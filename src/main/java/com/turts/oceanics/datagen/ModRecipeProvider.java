@@ -63,7 +63,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .pattern("XXX")
                         .input('X', Items.DIAMOND)
                         .input('#', ModItems.AWAKENING_TEMPLATE)
-                        .input('$', Items.PRISMARINE_BRICKS)
+                        .input('$', Items.DARK_PRISMARINE)
                         .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
                         .offerTo(exporter);
 

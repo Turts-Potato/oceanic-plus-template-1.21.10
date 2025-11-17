@@ -8,11 +8,16 @@
   "item.oceanic-plus.frog_chestplate": "Frog Chestplate",
   "item.oceanic-plus.frog_hat": "Frog Hat",
   "item.oceanic-plus.burnt_frog": "Burnt Frog",
-  "item.oceanic-plus.awakening_template": "Awakening Template",
+  "item.oceanic-plus.awakening_template": "§eAwakening Template§r",
   "item.oceanic-plus.awakened_turtle_helmet": "Awakened Turtle Helmet",
   "item.oceanic-plus.awakened_nautilus_chestplate": "Awakened Nautilus Chestplate",
   "item.oceanic-plus.awakened_frog_leggings": "Awakened Frog Leggings",
   "item.oceanic-plus.awakened_frog_boots": "Awakened Frog Boots",
+
+  "item.oceanic-plus.smithing_template.aquatic_upgrade.applies_to": "§9Aquatic Armor§r",
+  "item.oceanic-plus.smithing_template.aquatic_upgrade.ingredients": "§9Prismarine Shard§r",
+  "item.oceanic-plus.smithing_template.aquatic_upgrade.base_slot_description": "Add aquatic armor",
+  "item.oceanic-plus.smithing_template.aquatic_upgrade.additions_slot_description": "Add Prismarine Shard",
 
   "tooltip.oceanic-plus.placeholder_spec": "§9This is a placeholder, maybe it'll awaken items?§r",
   "tooltip.oceanic-plus.frog_chestplate": "§8Purely for cosmetic purposes§r",
