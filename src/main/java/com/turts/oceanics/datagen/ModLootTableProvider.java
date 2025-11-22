@@ -21,9 +21,5 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     addDrop(ModBlocks.PLACEHOLDER);
     addDrop(ModBlocks.PLACEHOLDERSPEC);
     addDrop(Blocks.TURTLE_EGG);
-    addDrop(Blocks.VERDANT_FROGLIGHT, Blocks.GLOWSTONE);
-    addDrop(Blocks.OCHRE_FROGLIGHT, Blocks.GLOWSTONE);
-    addDrop(Blocks.PEARLESCENT_FROGLIGHT, Blocks.GLOWSTONE);
-    addDrop(Blocks.TURTLE_EGG, Blocks.TURTLE_EGG);
     }
 }

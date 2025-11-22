@@ -34,6 +34,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 offerSmelting(OCEANICS_SMELTABLE_FROG, RecipeCategory.FOOD, ModItems.BURNT_FROG, 0.25F ,200,"burnt_frog");
 
+                createShapeless(RecipeCategory.MISC, ModItems.FROG_HIDE, 1)
+                        .input(Items.RABBIT_HIDE)
+                        .input(Items.SLIME_BALL)
+                        .criterion(hasItem(ModItems.FROG_HIDE), conditionsFromItem(ModItems.FROG_HIDE))
+                        .offerTo(exporter);
+
+
                 createShaped(RecipeCategory.COMBAT, ModItems.FROG_BOOTS, 1)
                         .pattern("X X")
                         .pattern("X X")
@@ -103,18 +110,36 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.AWAKENING_TEMPLATE), conditionsFromItem(ModItems.AWAKENING_TEMPLATE))
                         .offerTo(exporter, "oceanic-plus:frog_boots_awaken");
 
-                /*MAKE FROG HIDE ALTS CRAFT DIFFERENT FROGLIGHTS
 
                 createShaped(RecipeCategory.DECORATIONS, Items.PEARLESCENT_FROGLIGHT, 1)
-                        .pattern("XXX")
+                        .pattern("$X$")
                         .pattern("X#X")
-                        .pattern("XXX")
+                        .pattern("$X$")
                         .input('X', ModItems.FROG_HIDE)
                         .input('#', Items.GLOWSTONE)
+                        .input('$', Items.PURPLE_DYE)
                         .criterion(hasItem(Items.PEARLESCENT_FROGLIGHT), conditionsFromItem(Items.PEARLESCENT_FROGLIGHT))
                         .offerTo(exporter);
-                */
 
+                createShaped(RecipeCategory.DECORATIONS, Items.VERDANT_FROGLIGHT, 1)
+                        .pattern("$X$")
+                        .pattern("X#X")
+                        .pattern("$X$")
+                        .input('X', ModItems.FROG_HIDE)
+                        .input('#', Items.GLOWSTONE)
+                        .input('$', Items.GREEN_DYE)
+                        .criterion(hasItem(Items.VERDANT_FROGLIGHT), conditionsFromItem(Items.VERDANT_FROGLIGHT))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.DECORATIONS, Items.OCHRE_FROGLIGHT, 1)
+                        .pattern("$X$")
+                        .pattern("X#X")
+                        .pattern("$X$")
+                        .input('X', ModItems.FROG_HIDE)
+                        .input('#', Items.GLOWSTONE)
+                        .input('$', Items.YELLOW_DYE)
+                        .criterion(hasItem(Items.OCHRE_FROGLIGHT), conditionsFromItem(Items.OCHRE_FROGLIGHT))
+                        .offerTo(exporter);
             }
         };
     }

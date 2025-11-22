@@ -1,6 +1,7 @@
 package com.turts.oceanics.item.custom;
 
 import com.google.common.collect.ImmutableMap;
+import com.turts.oceanics.config.OceanicsConfigManager;
 import com.turts.oceanics.item.ModArmorMaterials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -75,7 +76,12 @@ public class ModArmorItem extends Item {
 
             // Top up if absent or running low
             boolean restartTimer = current == null || current.getDuration() <= 200 || current.getAmplifier() != template.getAmplifier();
-            if (restartTimer && player.isSneaking()) {
+
+            // Respect config: optionally require crouching to apply the jump boost
+            boolean requireCrouch = OceanicsConfigManager.requireCrouchForJumpBoost();
+            boolean allowed = requireCrouch ? player.isSneaking() : true;
+
+            if (restartTimer && allowed) {
                 player.addStatusEffect(new StatusEffectInstance(
                         type,
                         200, // 10 seconds

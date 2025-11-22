@@ -1,5 +1,6 @@
 package com.turts.oceanics.mixin;
 
+import com.turts.oceanics.config.OceanicsConfigManager;
 import com.turts.oceanics.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -26,6 +27,9 @@ public abstract class FrogBootsStepMixin {
         var feet = player.getEquippedStack(EquipmentSlot.FEET);
 
         if (!feet.isEmpty() && (feet.isOf(ModItems.FROG_BOOTS) || feet.isOf(ModItems.AWAKENED_FROG_BOOTS))) {
+            // If user prefers vanilla step sounds, let vanilla handle it
+            boolean useVanilla = OceanicsConfigManager.frogBootsUseVanillaStepSounds();
+            if (useVanilla) return;
             // Volume/pitch roughly match vanilla step sounds
             player.playSound(SoundEvents.BLOCK_SLIME_BLOCK_BREAK, 0.15F, 1.0F);
             ci.cancel(); // stop vanilla from playing the original step sound

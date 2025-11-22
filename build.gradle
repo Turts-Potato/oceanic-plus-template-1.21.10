@@ -11,11 +11,29 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+    // Add repositories to retrieve artifacts from in here.
+    // You should only use this when depending on other mods because
+    // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+    // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+    // for more information about repositories.
+    maven {
+        name = "Shedaniel Maven"
+        url = "https://maven.shedaniel.me/"
+    }
+    maven {
+        name = "BlameJared"
+        url = "https://maven.blamejared.com/"
+    }
+    // Required for ModMenu
+    maven {
+        name = "TerraformersMC Releases"
+        url = "https://maven.terraformersmc.com/releases/"
+    }
+    // Optional: only enable if you actually need artifacts from ModMaven
+    // maven {
+    //     name = "ModMaven"
+    //     url = "https://modmaven.dev"
+    // }
 }
 
 fabricApi {
@@ -30,9 +48,26 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+ // Fabric API. This is technically optional, but you probably want it anyway.
+ modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+// compile against the JEI API but do not include it at runtime
+    modCompileOnlyApi("mezz.jei:jei-${mc_version}-fabric-api:${jei_version}")
+   	// at runtime, use the full JEI jar for Fabric
+    modRuntimeOnly("mezz.jei:jei-${mc_version}-fabric:${jei_version}")
+
+
+
+    // Note: Loom's 'mappings' configuration must have exactly one dependency.
+    // Keep the canonical line above and do not add additional 'mappings' dependencies here.
+
+    // Cloth Config (for config screen + file)
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    // Optional: ModMenu for opening config in-game (suggested, not required)
+    modCompileOnly("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
 processResources {
