@@ -3,9 +3,7 @@ package com.turts.oceanics.item;
 import com.turts.oceanics.Oceanicplus;
 import com.turts.oceanics.item.custom.ModArmorItem;
 import com.turts.oceanics.item.custom.ModArmorItemButForTags;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.item.equipment.ArmorMaterials;
 import net.minecraft.item.equipment.EquipmentType;
@@ -13,10 +11,10 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
 import net.minecraft.text.Text;
-import java.util.List;
+import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class ModItems {
@@ -82,16 +80,16 @@ public class ModItems {
             settings -> createAquaticUpgrade(settings));
 
     public static final Item AWAKENED_TURTLE_HELMET = registerItem("awakened_turtle_helmet",
-            setting -> new ModArmorItemButForTags(setting.armor(ArmorMaterials.TURTLE_SCUTE, EquipmentType.HELMET), ArmorMaterials.TURTLE_SCUTE));
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.AWAKENED_TURTLE_SCUTE_MATERIAL, EquipmentType.HELMET), ArmorMaterials.TURTLE_SCUTE));
 
     public static final Item AWAKENED_NAUTILUS_CHESTPLATE = registerItem("awakened_nautilus_chestplate",
-            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.NAUTILUS_SHELL_ARMOR_MATERIAL, EquipmentType.CHESTPLATE), ModArmorMaterials.NAUTILUS_SHELL_ARMOR_MATERIAL));
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.AWAKENED_NAUTILUS_SHELL_ARMOR_MATERIAL, EquipmentType.CHESTPLATE), ModArmorMaterials.NAUTILUS_SHELL_ARMOR_MATERIAL));
 
     public static final Item AWAKENED_FROG_BOOTS = registerItem("awakened_frog_boots",
-            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL, EquipmentType.BOOTS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.AWAKENED_FROG_HIDE_ARMOR_MATERIAL, EquipmentType.BOOTS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
 
     public static final Item AWAKENED_FROG_LEGGINGS = registerItem("awakened_frog_leggings",
-            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL, EquipmentType.LEGGINGS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
+            setting -> new ModArmorItemButForTags(setting.armor(ModArmorMaterials.AWAKENED_FROG_HIDE_ARMOR_MATERIAL, EquipmentType.LEGGINGS), ModArmorMaterials.FROG_HIDE_ARMOR_MATERIAL));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> function) {
 

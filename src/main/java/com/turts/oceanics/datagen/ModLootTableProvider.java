@@ -1,12 +1,8 @@
 package com.turts.oceanics.datagen;
 
-import com.turts.oceanics.block.ModBlocks;
-import com.turts.oceanics.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,8 +14,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-    addDrop(ModBlocks.PLACEHOLDER);
-    addDrop(ModBlocks.PLACEHOLDERSPEC);
     addDrop(Blocks.TURTLE_EGG);
     }
 }

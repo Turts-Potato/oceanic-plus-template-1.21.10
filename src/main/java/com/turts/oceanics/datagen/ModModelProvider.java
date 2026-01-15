@@ -1,6 +1,5 @@
 package com.turts.oceanics.datagen;
 
-import com.turts.oceanics.block.ModBlocks;
 import com.turts.oceanics.item.ModArmorMaterials;
 import com.turts.oceanics.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
@@ -9,7 +8,6 @@ import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
 import net.minecraft.item.equipment.ArmorMaterials;
-import net.minecraft.item.equipment.EquipmentAsset;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -18,8 +16,6 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PLACEHOLDER);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PLACEHOLDERSPEC);
     }
 
     @Override

@@ -1,0 +1,15 @@
+{
+  "layers": {
+
+    "humanoid": [
+      {
+        "texture": "oceanic-plus:awakened_frog_hide"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "oceanic-plus:awakened_frog_hide"
+      }
+    ]
+  }
+}

@@ -2,8 +2,6 @@ package com.turts.oceanics.util;
 
 import com.turts.oceanics.item.ModItems;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;
@@ -15,9 +13,8 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.item.ItemPredicate;
-import net.minecraft.util.Identifier;
-import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Identifier;
 
 public class ModLootTableModifiers {
 

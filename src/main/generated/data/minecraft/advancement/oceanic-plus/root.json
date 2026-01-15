@@ -25,5 +25,8 @@
       "got_frog_hide"
     ]
   ],
+  "rewards": {
+    "experience": 500
+  },
   "sends_telemetry_event": true
 }

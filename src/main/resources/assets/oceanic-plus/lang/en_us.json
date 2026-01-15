@@ -3,8 +3,6 @@
   "item.oceanic-plus.frog_boots": "Frog Boots",
   "item.oceanic-plus.frog_leggings": "Frog Leggings",
   "item.oceanic-plus.frog_hide": "Frog Hide",
-  "item.oceanic-plus.placeholder_rn": "PlaceholderRn",
-  "item.oceanic-plus.placeholder_spec": "PlaceholderSpec",
   "item.oceanic-plus.frog_chestplate": "Frog Chestplate",
   "item.oceanic-plus.frog_hat": "Frog Hat",
   "item.oceanic-plus.burnt_frog": "Burnt Frog",
@@ -19,7 +17,6 @@
   "item.oceanic-plus.smithing_template.aquatic_upgrade.base_slot_description": "Add aquatic armor",
   "item.oceanic-plus.smithing_template.aquatic_upgrade.additions_slot_description": "Add Prismarine Shard",
 
-  "tooltip.oceanic-plus.placeholder_spec": "§9This is a placeholder, maybe it'll awaken items?§r",
   "tooltip.oceanic-plus.frog_chestplate": "§8Purely for cosmetic purposes§r",
   "tooltip.oceanic-plus.frog_hat": "§8Purely for cosmetic purposes§r",
 

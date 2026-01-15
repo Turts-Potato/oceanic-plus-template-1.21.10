@@ -1,18 +1,17 @@
 package com.turts.oceanics;
 
-import com.turts.oceanics.block.ModBlocks;
 import com.turts.oceanics.config.OceanicsConfig;
-import com.turts.oceanics.item.custom.ModArmorAttributes;
 import com.turts.oceanics.item.ModItemGroups;
 import com.turts.oceanics.item.ModItems;
+import com.turts.oceanics.item.custom.ModArmorAttributes;
 import com.turts.oceanics.util.ModLootTableModifiers;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.potion.Potions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 
 public class Oceanicplus implements ModInitializer {
 	public static final String MOD_ID = "oceanic-plus";
@@ -25,7 +24,6 @@ public class Oceanicplus implements ModInitializer {
      AutoConfig.register(OceanicsConfig.class, GsonConfigSerializer::new);
 
      ModItemGroups.registerItemGroups();
-     ModBlocks.registerModBlocks();
      ModItems.registerModItems();
      ModArmorAttributes.registerArmorAttributes();
      ModLootTableModifiers.modifyLootTables();

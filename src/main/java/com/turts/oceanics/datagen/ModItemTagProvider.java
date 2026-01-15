@@ -4,10 +4,10 @@ import com.turts.oceanics.item.ModItems;
 import com.turts.oceanics.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -30,12 +30,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(ModTags.Items.NAUTILUS_SHELL_REPAIR)
                 .add(Items.NAUTILUS_SHELL);
 
-        valueLookupBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
-                .add(ModItems.FROG_LEGGINGS)
-                .add(ModItems.FROG_BOOTS)
-                .add(ModItems.AWAKENED_FROG_LEGGINGS)
-                .add(ModItems.AWAKENED_FROG_BOOTS);
-
         valueLookupBuilder(ItemTags.HEAD_ARMOR)
                 .add(ModItems.AWAKENED_TURTLE_HELMET);
 
@@ -50,6 +44,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(ItemTags.FOOT_ARMOR)
                 .add(ModItems.FROG_BOOTS)
                 .add(ModItems.AWAKENED_FROG_BOOTS);
+
+        valueLookupBuilder(ItemTags.FREEZE_IMMUNE_WEARABLES)
+                .add(ModItems.FROG_BOOTS)
+                .add(ModItems.AWAKENED_FROG_BOOTS)
+                .add(ModItems.FROG_LEGGINGS)
+                .add(ModItems.AWAKENED_FROG_LEGGINGS);
 
         valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.FROG_HAT)
