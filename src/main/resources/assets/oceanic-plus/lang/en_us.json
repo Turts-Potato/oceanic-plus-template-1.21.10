@@ -33,10 +33,10 @@
   "text.autoconfig.oceanic-plus.title": "Oceanic Plus Config",
 
   "text.autoconfig.oceanic-plus.option.requireCrouchForJumpBoost": "Require Crouch for Jump Boost",
-  "text.autoconfig.oceanic-plus.option.requireCrouchForJumpBoost.@Tooltip": "When enabled, you must crouch to activate/refresh the Frog Boots jump boost.",
+  "text.autoconfig.oceanic-plus.option.requireCrouchForJumpBoost.@Tooltip": "When enabled, you must crouch to activate/refresh the Frog armor's jump boost.",
 
   "text.autoconfig.oceanic-plus.option.frogBootsUseVanillaStepSounds": "Use Vanilla Step Sounds",
-  "text.autoconfig.oceanic-plus.option.frogBootsUseVanillaStepSounds.@Tooltip": "When enabled, Frog Boots will use the vanilla step sounds instead of custom ones.",
+  "text.autoconfig.oceanic-plus.option.frogBootsUseVanillaStepSounds.@Tooltip": "When enabled, Frog Boots will use the vanilla step sounds instead of slime block sfx.",
 
-  "itemgroup.oceanic-plus.oceanics_items": "Oceanic Plus Items"
+  "itemgroup.oceanic-plus.oceanics_items": "Oceanic Plus"
 }

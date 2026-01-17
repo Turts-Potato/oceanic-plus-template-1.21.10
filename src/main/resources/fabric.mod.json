@@ -4,9 +4,13 @@
 	"version": "${version}",
 	"name": "Oceanic Plus",
 	"description": "This is a mod meant to improve ocean exploration by improving its rewards",
-	"author": [
+	"authors": [
 		"Turts-Potato"
 	],
+    "contributors": [
+      "GioMacGrillin",
+      "Some Fat Guy in Alaska"
+    ],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/Turts-Potato/oceanic-plus-template-1.21.10"
