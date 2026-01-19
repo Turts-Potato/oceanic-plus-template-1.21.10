@@ -15,7 +15,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/Turts-Potato/oceanic-plus-template-1.21.10"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/oceanic-plus/icon.png",
 	"environment": "*",
 	"entrypoints": {
