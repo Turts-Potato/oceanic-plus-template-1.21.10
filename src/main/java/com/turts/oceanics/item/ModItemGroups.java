@@ -15,14 +15,14 @@ public class ModItemGroups {
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.FROG_HIDE))
                     .displayName(Text.translatable("itemgroup.oceanic-plus.oceanics_items"))
                     .entries((displayContext, entries) -> {
-                        entries.add(ModItems.NAUTILUS_CHESTPLATE);
-                        entries.add(ModItems.FROG_LEGGINGS);
-                        entries.add(ModItems.FROG_BOOTS);
                         entries.add(ModItems.FROG_HIDE);
-                        entries.add(ModItems.FROG_HAT);
-                        entries.add(ModItems.FROG_CHESTPLATE);
                         entries.add(ModItems.BURNT_FROG);
                         entries.add(ModItems.AWAKENING_TEMPLATE);
+                        entries.add(ModItems.NAUTILUS_CHESTPLATE);
+                        entries.add(ModItems.FROG_HAT);
+                        entries.add(ModItems.FROG_CHESTPLATE);
+                        entries.add(ModItems.FROG_LEGGINGS);
+                        entries.add(ModItems.FROG_BOOTS);
                         entries.add(ModItems.AWAKENED_TURTLE_HELMET);
                         entries.add(ModItems.AWAKENED_NAUTILUS_CHESTPLATE);
                         entries.add(ModItems.AWAKENED_FROG_LEGGINGS);
